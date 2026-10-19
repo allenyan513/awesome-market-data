@@ -1,0 +1,23 @@
+name: Nasdaq Trader symbol directory
+url: https://www.nasdaqtrader.com/trader.aspx?id=symboldirdefs
+category: reference
+description: Pipe-delimited lists of every Nasdaq-listed and other US exchange-listed security, refreshed each trading day.
+price: free
+auth: none
+formats: [txt]
+terms:
+  url: https://www.nasdaqtrader.com/Trader.aspx?id=CopyDisclaimMain
+  store: "no"
+  redistribute: "no"
+  commercial: "no"
+  quote: "may not be copied, reproduced, transmitted, displayed, performed, distributed ... stored for subsequent use ... without the prior written consent of Nasdaq"
+  note: Site-wide terms allow one copy for personal, non-commercial use; anything else needs Nasdaq's written consent. Widely used regardless.
+pit:
+  value: "no"
+  note: Current snapshot only, no archive.
+gotchas:
+  - The last line is a "File Creation Time" trailer, not a security.
+  - Filter out Test Issue = Y rows.
+  - otherlisted.txt carries three symbol conventions per row (CQS, NASDAQ, ACT), e.g. ABR-D vs ABRpD vs ABR$D for the same preferred.
+status: active
+verified: 2026-10-19

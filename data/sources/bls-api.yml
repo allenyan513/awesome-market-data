@@ -1,0 +1,23 @@
+name: BLS Public Data API
+url: https://www.bls.gov/developers/
+category: macro
+description: JSON API for Bureau of Labor Statistics series such as CPI, payrolls, unemployment and PPI.
+price: free
+price_note: v2 needs a free registration key
+auth: key
+rate_limit: "v1 (no key) 25 queries/day; v2 500 queries/day, 50 series and 20 years per query"
+formats: [json]
+terms:
+  url: https://www.bls.gov/bls/linksite.htm
+  store: "yes"
+  redistribute: "yes"
+  commercial: "yes"
+  quote: "everything that we publish, both in hard copy and electronically, is in the public domain"
+  note: Cite BLS; the API terms ask apps to show a notice that BLS can't vouch for data after retrieval, and modified data must not be presented as BLS's.
+pit:
+  value: "no"
+  note: Returns current published values only; there is no vintage parameter.
+gotchas:
+  - The v2 key goes in the POST body, and long histories must be chunked in 20-year windows.
+status: active
+verified: 2026-10-19

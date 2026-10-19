@@ -1,0 +1,22 @@
+name: Alpha Vantage MCP server
+url: https://github.com/alphavantage/alpha_vantage_mcp
+category: agents
+description: Official MCP server exposing every Alpha Vantage API function as a tool, hosted or run locally.
+price: freemium
+price_note: same plans and limits as the API
+auth: account
+terms:
+  url: https://www.alphavantage.co/terms_of_service/
+  store: unclear
+  redistribute: "no"
+  commercial: conditional
+  note: Same terms as the Alpha Vantage API (personal use unless agreed in writing).
+pit:
+  value: partial
+mcp:
+  endpoint: https://mcp.alphavantage.co/mcp
+  transport: remote
+  read_only: true
+  note: OAuth where you enter your key; a local uvx package also exists
+status: active
+verified: 2026-10-19

@@ -1,0 +1,21 @@
+name: Federal Reserve Board Data Download Program
+url: https://www.federalreserve.gov/datadownload/
+category: macro
+description: Bulk downloads of the Board's statistical releases, such as H.15 interest rates, H.4.1, H.8, G.19 and Z.1.
+price: free
+auth: none
+formats: [csv, xlsx, xml]
+terms:
+  url: https://www.federalreserve.gov/disclaimer.htm
+  store: "yes"
+  redistribute: conditional
+  commercial: "yes"
+  quote: "information on Board's website is in the public domain and may be copied and distributed without permission"
+  note: Cite the Board as the source; material the Board took from others needs that source's permission.
+pit:
+  value: "no"
+  note: The Board states that pre-revision (real-time) data is not available.
+gotchas:
+  - Being retired. A notice dated 2026-07-16 removes "Build Your Package" before the program closes, so saved direct-download URLs will likely break. Per-release files (e.g. the excess bond premium CSV) are the safer path.
+status: active
+verified: 2026-10-19

@@ -1,0 +1,16 @@
+{
+  "name": "awesome-market-data",
+  "private": true,
+  "type": "module",
+  "description": "Builds README.md and sources.json from data/sources/*.yml.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/build.mjs --check"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "yaml": "2.6.1"
+  }
+}

@@ -1,0 +1,38 @@
+# Copy to data/sources/<kebab-case-id>.yml, fill in, then run `npm run build`.
+# Comments after each field list the allowed values.
+
+name: Example Data API
+url: https://example.com/docs                # the docs or landing page
+category: prices                             # filings | prices | ownership | macro | reference | research | agents
+description: Daily OHLCV prices and dividends for US-listed stocks, as JSON.   # <= 160 chars, ends with a period, no hype
+price: freemium                              # free | freemium | paid
+price_note: 25 calls/day free; paid from $X/month   # optional
+auth: key                                    # none | key | user-agent | account
+rate_limit: 5 requests/minute                # optional, as documented, free tier
+formats: [json, csv]                         # optional
+
+terms:
+  url: https://example.com/terms             # required: the page these answers come from
+  store: yes                                 # yes | no | conditional | unclear
+  redistribute: conditional
+  commercial: no
+  quote: "The decisive sentence, verbatim, so a reviewer can find it."   # optional but strongly preferred
+  note: Showing the data to end users needs the Pro plan.                 # optional, one line, rendered in the README
+
+pit:
+  value: partial                             # yes | partial | no | unclear | n/a
+  note: Statements carry the filing date, but restated values overwrite the originals.   # optional
+
+gotchas:                                     # optional, 0–3 concrete pitfalls you actually hit
+  - The `from` parameter is ignored on this endpoint; filter client-side.
+
+status: active                               # active | shut-down
+verified: 2026-01-31                         # the day you read the terms page
+# maintainer_project: true                   # only for the maintainer's own projects
+
+# Only for category: agents
+# mcp:
+#   endpoint: https://example.com/mcp
+#   transport: remote                        # remote | local
+#   read_only: true
+#   note: optional, e.g. "3 tools, no account"

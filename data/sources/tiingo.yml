@@ -1,0 +1,24 @@
+name: Tiingo
+url: https://www.tiingo.com/documentation/general/overview
+category: prices
+description: REST and WebSocket API for 30+ years of US end-of-day prices, IEX intraday, news, crypto and a fundamentals add-on.
+price: freemium
+price_note: free Starter; Power $30/month for individuals, $50/month for internal business use, display licenses from $250/month
+auth: key
+rate_limit: 50 requests/hour, 1,000/day, 500 symbols/month (free)
+formats: [json, csv]
+terms:
+  url: https://app.tiingo.com/tos
+  store: conditional
+  redistribute: conditional
+  commercial: conditional
+  quote: "you may not write, save, archive, back up, or otherwise retain Tiingo Data in any persistent or durable storage."
+  note: That clause covers the free and trial plans; paid plans may store while subscribed and must delete everything, backups included, on cancellation. Redistribution needs permission and "Data sourced by Tiingo".
+pit:
+  value: partial
+  note: Statement dates are the date released to the public; no restatement flag is documented.
+gotchas:
+  - Terms updated 2026-10-06 count reverse-engineerable derived series (rebased charts, a P/E from a Tiingo price) as Tiingo Data.
+  - Using Tiingo data to validate another dataset is prohibited.
+status: active
+verified: 2026-10-19

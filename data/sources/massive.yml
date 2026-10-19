@@ -1,0 +1,23 @@
+name: Massive (formerly Polygon.io)
+url: https://massive.com/docs
+category: prices
+description: REST, WebSocket and flat-file API for US stocks, options, indices, FX and crypto. Polygon.io was renamed Massive in October 2025.
+price: freemium
+price_note: free EOD tier (2 years); Stocks Starter $29/month; financials from $29/month as an add-on; business plans priced separately
+auth: key
+rate_limit: 5 calls/minute (free)
+formats: [json, csv]
+terms:
+  url: https://massive.com/legal/market-data-terms-of-service
+  store: conditional
+  redistribute: "no"
+  commercial: "no"
+  quote: "Redistribute, display, disseminate… the Market Data—or any data, charts, analytics… derived from the Market Data… to any third party"
+  note: Individual plans are personal and non-business; the ban covers derived charts and analytics too. Business use needs the business plans, and data must be deleted on termination.
+pit:
+  value: partial
+  note: Financials' filing_date is the most recent filing that included the period, not necessarily when it was first reported.
+gotchas:
+  - polygon.io redirects to massive.com; update old base URLs and SDKs.
+status: active
+verified: 2026-10-19

@@ -1,0 +1,22 @@
+name: Massive MCP server
+url: https://github.com/massive-com/mcp_massive
+category: agents
+description: Official MCP server for Massive (formerly Polygon.io) with three tools that search endpoints, call any REST API and query results in SQL.
+price: freemium
+price_note: same plans and limits as the API
+auth: key
+terms:
+  url: https://massive.com/legal/market-data-terms-of-service
+  store: conditional
+  redistribute: "no"
+  commercial: "no"
+  note: Same terms as the Massive API.
+pit:
+  value: partial
+mcp:
+  endpoint: https://mcp.massive.com
+  transport: remote
+  read_only: true
+  note: hosted with OAuth, or local over stdio with MASSIVE_API_KEY; query_data writes only to its own in-memory SQLite
+status: active
+verified: 2026-10-19

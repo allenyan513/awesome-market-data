@@ -1,0 +1,22 @@
+name: Treasury Fiscal Data API
+url: https://fiscaldata.treasury.gov/api-documentation/
+category: macro
+description: REST API for federal finance datasets such as public debt, the Daily Treasury Statement, auctions and average interest rates.
+price: free
+auth: none
+formats: [json, csv, xml]
+terms:
+  url: https://fiscaldata.treasury.gov/api-documentation/
+  store: "yes"
+  redistribute: "yes"
+  commercial: "yes"
+  quote: "The data is offered free, without restriction"
+  note: Explicit open license covering commercial and non-commercial use; no attribution required.
+pit:
+  value: partial
+  note: Rows are keyed by record_date; no vintage or revision field.
+gotchas:
+  - Every field comes back as a string, including "null".
+  - The default page size is 100 rows; page through or set page[size].
+status: active
+verified: 2026-10-19

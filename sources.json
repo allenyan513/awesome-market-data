@@ -1,0 +1,1128 @@
+{
+  "generated_from": "data/sources/*.yml",
+  "count": 37,
+  "sources": [
+    {
+      "id": "alpha-vantage-mcp",
+      "name": "Alpha Vantage MCP server",
+      "url": "https://github.com/alphavantage/alpha_vantage_mcp",
+      "category": "agents",
+      "description": "Official MCP server exposing every Alpha Vantage API function as a tool, hosted or run locally.",
+      "price": "freemium",
+      "price_note": "same plans and limits as the API",
+      "auth": "account",
+      "terms": {
+        "url": "https://www.alphavantage.co/terms_of_service/",
+        "store": "unclear",
+        "redistribute": "no",
+        "commercial": "conditional",
+        "note": "Same terms as the Alpha Vantage API (personal use unless agreed in writing)."
+      },
+      "pit": {
+        "value": "partial"
+      },
+      "mcp": {
+        "endpoint": "https://mcp.alphavantage.co/mcp",
+        "transport": "remote",
+        "read_only": true,
+        "note": "OAuth where you enter your key; a local uvx package also exists"
+      },
+      "status": "active",
+      "verified": "2026-10-19"
+    },
+    {
+      "id": "alpha-vantage",
+      "name": "Alpha Vantage",
+      "url": "https://www.alphavantage.co/documentation/",
+      "category": "prices",
+      "description": "REST API for US and global daily and intraday prices, fundamentals, earnings, FX, crypto and economic indicators.",
+      "price": "freemium",
+      "price_note": "25 requests/day free; premium from $49.99/month",
+      "auth": "key",
+      "rate_limit": "25 requests/day (free)",
+      "formats": [
+        "json",
+        "csv"
+      ],
+      "terms": {
+        "url": "https://www.alphavantage.co/terms_of_service/",
+        "store": "unclear",
+        "redistribute": "no",
+        "commercial": "conditional",
+        "quote": "for personal, non-commercial use, unless you and Alpha Vantage have agreed otherwise in writing",
+        "note": "Applies to paid plans too; showing data to anyone else counts as commercial and needs a written agreement. The terms say nothing about storage."
+      },
+      "pit": {
+        "value": "partial",
+        "note": "Statements carry only fiscalDateEnding; the earnings endpoint has reportedDate and reportTime, usable as an availability proxy."
+      },
+      "gotchas": [
+        "The free tier returns only the latest 100 daily points (outputsize=compact); full history is premium.",
+        "A premium plan raises limits but does not by itself grant commercial rights."
+      ],
+      "status": "active",
+      "verified": "2026-10-19"
+    },
+    {
+      "id": "bea-api",
+      "name": "BEA API",
+      "url": "https://apps.bea.gov/API/signup/",
+      "category": "macro",
+      "description": "API for Bureau of Economic Analysis data, including GDP and the national accounts (NIPA), regional and industry accounts.",
+      "price": "free",
+      "auth": "key",
+      "rate_limit": "100 requests/min, 100 MB/min, 30 errors/min (then a ~1-minute lockout)",
+      "formats": [
+        "json",
+        "xml"
+      ],
+      "terms": {
+        "url": "https://apps.bea.gov/API/_pdf/bea_api_tos.pdf",
+        "store": "yes",
+        "redistribute": "yes",
+        "commercial": "yes",
+        "quote": "This product uses the Bureau of Economic Analysis (BEA) Data API but is not endorsed or certified by BEA.",
+        "note": "That notice must be shown prominently; don't modify the data and still attribute it to BEA. Public domain as a federal work."
+      },
+      "pit": {
+        "value": "no",
+        "note": "Latest estimates only. Real-time vintages live elsewhere (ALFRED, the Philadelphia Fed's real-time data set)."
+      },
+      "gotchas": [
+        "Annual comprehensive revisions rewrite years of history in place."
+      ],
+      "status": "active",
+      "verified": "2026-10-19"
+    },
+    {
+      "id": "bls-api",
+      "name": "BLS Public Data API",
+      "url": "https://www.bls.gov/developers/",
+      "category": "macro",
+      "description": "JSON API for Bureau of Labor Statistics series such as CPI, payrolls, unemployment and PPI.",
+      "price": "free",
+      "price_note": "v2 needs a free registration key",
+      "auth": "key",
+      "rate_limit": "v1 (no key) 25 queries/day; v2 500 queries/day, 50 series and 20 years per query",
+      "formats": [
+        "json"
+      ],
+      "terms": {
+        "url": "https://www.bls.gov/bls/linksite.htm",
+        "store": "yes",
+        "redistribute": "yes",
+        "commercial": "yes",
+        "quote": "everything that we publish, both in hard copy and electronically, is in the public domain",
+        "note": "Cite BLS; the API terms ask apps to show a notice that BLS can't vouch for data after retrieval, and modified data must not be presented as BLS's."
+      },
+      "pit": {
+        "value": "no",
+        "note": "Returns current published values only; there is no vintage parameter."
+      },
+      "gotchas": [
+        "The v2 key goes in the POST body, and long histories must be chunked in 20-year windows."
+      ],
+      "status": "active",
+      "verified": "2026-10-19"
+    },
+    {
+      "id": "cboe-vix-history",
+      "name": "Cboe VIX historical data",
+      "url": "https://www.cboe.com/tradable_products/vix/vix_historical_data/",
+      "category": "research",
+      "description": "Daily open, high, low and close of the Cboe Volatility Index from 1990, as one CSV updated each trading day.",
+      "price": "free",
+      "price_note": "intraday and custom history is sold through Cboe DataShop",
+      "auth": "none",
+      "formats": [
+        "csv"
+      ],
+      "terms": {
+        "url": "https://www.cboe.com/terms",
+        "store": "no",
+        "redistribute": "no",
+        "commercial": "no",
+        "quote": "You may not otherwise copy, reproduce, alter, store ... in an electronic retrieval system, license, transmit, display ... create a derivative work",
+        "note": "One copy for personal, non-commercial use; anything else needs a signed license agreement with Cboe."
+      },
+      "pit": {
+        "value": "yes",
+        "note": "Index closes are not restated after the fact (no revision notice found)."
+      },
+      "gotchas": [
+        "Early rows have open = high = low = close (close only).",
+        "Dates are MM/DD/YYYY, and the CDN URL redirects, so follow redirects."
+      ],
+      "status": "active",
+      "verified": "2026-10-19"
+    },
+    {
+      "id": "chicago-fed-nfci",
+      "name": "Chicago Fed National Financial Conditions Index",
+      "url": "https://www.chicagofed.org/research/data/nfci/current-data",
+      "category": "macro",
+      "description": "Weekly index of US financial conditions since 1971, built from 105 measures, with risk, credit and leverage subindexes.",
+      "price": "free",
+      "auth": "none",
+      "formats": [
+        "csv",
+        "xlsx"
+      ],
+      "terms": {
+        "url": "https://www.chicagofed.org/utilities/legal-notices",
+        "store": "unclear",
+        "redistribute": "conditional",
+        "commercial": "no",
+        "note": "The Bank allows reproduction of its materials with credit and not for commercial gain; other republication needs written permission. The notices don't address data series directly."
+      },
+      "pit": {
+        "value": "partial",
+        "note": "The whole history can be revised every week and no vintage archive is published, so a naive backtest looks ahead."
+      },
+      "gotchas": [
+        "The date column is the Friday of the measured week, not the Wednesday release date.",
+        "Use api.data.chicagofed.org/NFCI/nfci-data-series-csv.csv; the older /-/media/ download link stopped updating in April 2026."
+      ],
+      "status": "active",
+      "verified": "2026-10-19"
+    },
+    {
+      "id": "damodaran-online",
+      "name": "Damodaran Online datasets",
+      "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/data.html",
+      "category": "research",
+      "description": "Aswath Damodaran's yearly industry datasets (betas, equity risk premium, margins, multiples, cost of capital) for the US and other regions.",
+      "price": "free",
+      "auth": "none",
+      "formats": [
+        "xls",
+        "html"
+      ],
+      "terms": {
+        "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datahistory.html#rules",
+        "store": "yes",
+        "redistribute": "unclear",
+        "commercial": "unclear",
+        "quote": "I want the data to be widely used and to be a help, rather than a hindrance.",
+        "note": "Informal permission and optional acknowledgement, but no formal license; the underlying inputs come from Bloomberg, Capital IQ and others."
+      },
+      "pit": {
+        "value": "partial",
+        "note": "Past vintages are archived by update date; current files are overwritten each January."
+      },
+      "gotchas": [
+        "The main update lands in the first two weeks of January; inputs are trailing twelve months through Q3 of the prior year.",
+        "Industry definitions change between vintages, so a series across years is not like for like.",
+        "The monthly implied equity risk premium is a separate page and moves more than the January table."
+      ],
+      "status": "active",
+      "verified": "2026-10-19"
+    },
+    {
+      "id": "federal-reserve-data-download",
+      "name": "Federal Reserve Board Data Download Program",
+      "url": "https://www.federalreserve.gov/datadownload/",
+      "category": "macro",
+      "description": "Bulk downloads of the Board's statistical releases, such as H.15 interest rates, H.4.1, H.8, G.19 and Z.1.",
+      "price": "free",
+      "auth": "none",
+      "formats": [
+        "csv",
+        "xlsx",
+        "xml"
+      ],
+      "terms": {
+        "url": "https://www.federalreserve.gov/disclaimer.htm",
+        "store": "yes",
+        "redistribute": "conditional",
+        "commercial": "yes",
+        "quote": "information on Board's website is in the public domain and may be copied and distributed without permission",
+        "note": "Cite the Board as the source; material the Board took from others needs that source's permission."
+      },
+      "pit": {
+        "value": "no",
+        "note": "The Board states that pre-revision (real-time) data is not available."
+      },
+      "gotchas": [
+        "Being retired. A notice dated 2026-07-16 removes \"Build Your Package\" before the program closes, so saved direct-download URLs will likely break. Per-release files (e.g. the excess bond premium CSV) are the safer path."
+      ],
+      "status": "active",
+      "verified": "2026-10-19"
+    },
+    {
+      "id": "financial-modeling-prep",
+      "name": "Financial Modeling Prep",
+      "url": "https://site.financialmodelingprep.com/developer/docs",
+      "category": "prices",
+      "description": "REST API for US and global prices, financial statements, ratios, estimates, 13F holdings, transcripts and news.",
+      "price": "freemium",
+      "price_note": "250 calls/day free; Starter $29/month; display rights only under a separate enterprise agreement",
+      "auth": "key",
+      "rate_limit": "250 calls/day and 500 MB per 30 days (free)",
+      "formats": [
+        "json",
+        "csv"
+      ],
+      "terms": {
+        "url": "https://site.financialmodelingprep.com/terms-of-service",
+        "store": "conditional",
+        "redistribute": "no",
+        "commercial": "no",
+        "quote": "Displaying or redistributing data sourced from FMP requires a specific Data Display and Licensing Agreement with FMP.",
+        "note": "Self-serve plans are licensed for personal, non-commercial use and may not feed a multi-user site or app; data, caches included, must be deleted on termination."
+      },
+      "pit": {
+        "value": "partial",
+        "note": "Statement rows carry filingDate and acceptedDate (naive US Eastern time), but there is one row per period, overwritten when the 10-K replaces earnings-release figures."
+      },
+      "gotchas": [
+        "Annual statements appear on earnings-release day, before the 10-K, with zeros for lines the release omitted (capex 0, whole cash flow statements 0).",
+        "Some endpoints (e.g. grades) ignore from/to/limit and always return the full history; filter client-side.",
+        "A lapsed subscription shows up as HTTP 429 on every endpoint, which looks like rate limiting. Check billing first."
+      ],
+      "status": "active",
+      "verified": "2026-10-19"
+    },
+    {
+      "id": "finnhub-mcp",
+      "name": "Finnhub MCP server",
+      "url": "https://finnhub.io/static/finnhub-how-to-connect-mcp-server.html",
+      "category": "agents",
+      "description": "Official hosted MCP server with about 70 Finnhub tools covering fundamentals, estimates, filings, fund holdings and economic data.",
+      "price": "freemium",
+      "price_note": "same plans and limits as the API",
+      "auth": "account",
+      "terms": {
+        "url": "https://finnhub.io/terms-of-service",
+        "store": "conditional",
+        "redistribute": "no",
+        "commercial": "no",
+        "note": "Same terms as the Finnhub API."
+      },
+      "pit": {
+        "value": "partial"
+      },
+      "mcp": {
+        "endpoint": "https://mcp.finnhub.io/mcp",
+        "transport": "remote",
+        "read_only": true,
+        "note": "OAuth with a Finnhub account (mcp:read scope)"
+      },
+      "status": "active",
+      "verified": "2026-10-19"
+    },
+    {
+      "id": "finnhub",
+      "name": "Finnhub",
+      "url": "https://finnhub.io/docs/api",
+      "category": "prices",
+      "description": "REST and WebSocket API for quotes, company fundamentals, as-reported SEC financials, estimates and news.",
+      "price": "freemium",
+      "price_note": "free US tier; paid plans from about $50/month, all licensed for personal use",
+      "auth": "key",
+      "rate_limit": "60 calls/minute and 30 calls/second (free)",
+      "formats": [
+        "json"
+      ],
+      "terms": {
+        "url": "https://finnhub.io/terms-of-service",
+        "store": "conditional",
+        "redistribute": "no",
+        "commercial": "no",
+        "quote": "You hereby agree to not redistribute or share access to data or derived results from the data obtained from Finnhub with anyone or any 3rd party without written approval from Finnhub.",
+        "note": "Every listed plan is personal; businesses need written approval even for internal use, and data must be deleted when the subscription ends."
+      },
+      "pit": {
+        "value": "partial",
+        "note": "The free \"Financials As Reported\" endpoint carries filedDate and acceptedDate; standardized statements are paid."
+      },
+      "gotchas": [
+        "Standardized statements, dividends and estimates are not on the free tier."
+      ],
+      "status": "active",
+      "verified": "2026-10-19"
+    },
+    {
+      "id": "finra-short-sale-data",
+      "name": "FINRA short interest and short sale volume",
+      "url": "https://www.finra.org/finra-data/browse-catalog/short-sale-volume-data/daily-short-sale-volume-files",
+      "category": "ownership",
+      "description": "Twice-monthly short interest positions and daily off-exchange short sale volume by security, as files and an API.",
+      "price": "freemium",
+      "price_note": "files and Public API credentials free; firm API credentials $1,650/month",
+      "auth": "none",
+      "rate_limit": "API: 1,200 sync requests/min per IP, 5,000 records per call",
+      "formats": [
+        "txt",
+        "csv",
+        "json"
+      ],
+      "terms": {
+        "url": "https://developer.finra.org/specific-terms-equity-data",
+        "store": "no",
+        "redistribute": "conditional",
+        "commercial": "no",
+        "note": "Website terms limit use to your own non-commercial use and bar building a database from the site; the API equity terms allow redistribution only free of charge, non-commercially, crediting FINRA. Commercial use needs written permission."
+      },
+      "pit": {
+        "value": "partial",
+        "note": "Short interest is keyed by settlement date and published days later; daily volume files can be replaced by \"updated\" files with no version field."
+      },
+      "gotchas": [
+        "Daily short sale volume is not short interest, and it covers off-exchange (TRF/ADF/ORF) trades only.",
+        "Not public domain despite FINRA's regulatory role."
+      ],
+      "status": "active",
+      "verified": "2026-10-19"
+    },
+    {
+      "id": "fmp-mcp",
+      "name": "Financial Modeling Prep MCP server",
+      "url": "https://site.financialmodelingprep.com/developer/docs/mcp-server",
+      "category": "agents",
+      "description": "Official hosted MCP server wrapping FMP's REST endpoints; calls count toward your plan's limits.",
+      "price": "freemium",
+      "price_note": "same plans and limits as the API",
+      "auth": "key",
+      "terms": {
+        "url": "https://site.financialmodelingprep.com/terms-of-service",
+        "store": "conditional",
+        "redistribute": "no",
+        "commercial": "no",
+        "note": "Same terms as the FMP API."
+      },
+      "pit": {
+        "value": "partial"
+      },
+      "mcp": {
+        "endpoint": "https://financialmodelingprep.com/mcp",
+        "transport": "remote",
+        "read_only": true,
+        "note": "API key in the query string (?apikey=)"
+      },
+      "status": "active",
+      "verified": "2026-10-19"
+    },
+    {
+      "id": "fred-api",
+      "name": "FRED and ALFRED API",
+      "url": "https://fred.stlouisfed.org/docs/api/fred/",
+      "category": "macro",
+      "description": "The St. Louis Fed's API to 800,000+ economic series aggregated from many publishers; ALFRED adds the historical vintages.",
+      "price": "free",
+      "auth": "key",
+      "formats": [
+        "json",
+        "xml",
+        "csv"
+      ],
+      "terms": {
+        "url": "https://fred.stlouisfed.org/legal/terms/",
+        "store": "no",
+        "redistribute": "no",
+        "commercial": "conditional",
+        "quote": "storing, caching, or archiving any portion of the FRED® Services or FRED® Content",
+        "note": "That is on the list of prohibited uses. The general license is personal and non-commercial, third-party series marked copyright need their owner's permission, and AI/ML training is prohibited. Fine for exploring, not for a pipeline."
+      },
+      "pit": {
+        "value": "yes",
+        "note": "realtime_start/realtime_end and the vintage output types return values as they were known on past dates; ALFRED is the best free real-time macro source."
+      },
+      "gotchas": [
+        "The older API terms page (docs/api/terms_of_use.html) lacks the storage and ML clauses; the binding text is /legal/terms/.",
+        "Storage is banned even for series that are public domain at their source, so fetch Treasury, BLS, BEA or Fed Board data from the original publisher instead."
+      ],
+      "status": "active",
+      "verified": "2026-10-19"
+    },
+    {
+      "id": "iex-cloud",
+      "name": "IEX Cloud",
+      "description": "IEX Group's developer API for US prices and fundamentals, popular in tutorials from 2018 to 2024.",
+      "status": "shut-down",
+      "gotchas": [
+        "Shutdown announced 2024-05-31; every product went dark on 2024-08-31."
+      ]
+    },
+    {
+      "id": "kenneth-french-data-library",
+      "name": "Kenneth R. French Data Library",
+      "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html",
+      "category": "research",
+      "description": "Fama-French factor returns (3-factor, 5-factor, momentum) and sorted portfolios, monthly, weekly and daily, from 1926.",
+      "price": "free",
+      "auth": "none",
+      "formats": [
+        "csv",
+        "zip"
+      ],
+      "terms": {
+        "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html",
+        "store": "unclear",
+        "redistribute": "unclear",
+        "commercial": "unclear",
+        "note": "The page states only \"Copyright Eugene F. Fama and Kenneth R. French\"; research use is near-universal but nothing grants it."
+      },
+      "pit": {
+        "value": "partial",
+        "note": "The full history is rebuilt every month and can change when CRSP revises; only a few series have July archives."
+      },
+      "gotchas": [
+        "Updated monthly with about a two-month lag.",
+        "From the January 2025 release monthly returns follow CRSP's new CIZ format (compounded daily, dividends reinvested on ex-dates), so old downloads won't match.",
+        "Missing values are -99.99 or -999, and each file stacks several tables (monthly, then annual)."
+      ],
+      "status": "active",
+      "verified": "2026-10-19"
+    },
+    {
+      "id": "massive-mcp",
+      "name": "Massive MCP server",
+      "url": "https://github.com/massive-com/mcp_massive",
+      "category": "agents",
+      "description": "Official MCP server for Massive (formerly Polygon.io) with three tools that search endpoints, call any REST API and query results in SQL.",
+      "price": "freemium",
+      "price_note": "same plans and limits as the API",
+      "auth": "key",
+      "terms": {
+        "url": "https://massive.com/legal/market-data-terms-of-service",
+        "store": "conditional",
+        "redistribute": "no",
+        "commercial": "no",
+        "note": "Same terms as the Massive API."
+      },
+      "pit": {
+        "value": "partial"
+      },
+      "mcp": {
+        "endpoint": "https://mcp.massive.com",
+        "transport": "remote",
+        "read_only": true,
+        "note": "hosted with OAuth, or local over stdio with MASSIVE_API_KEY; query_data writes only to its own in-memory SQLite"
+      },
+      "status": "active",
+      "verified": "2026-10-19"
+    },
+    {
+      "id": "massive",
+      "name": "Massive (formerly Polygon.io)",
+      "url": "https://massive.com/docs",
+      "category": "prices",
+      "description": "REST, WebSocket and flat-file API for US stocks, options, indices, FX and crypto. Polygon.io was renamed Massive in October 2025.",
+      "price": "freemium",
+      "price_note": "free EOD tier (2 years); Stocks Starter $29/month; financials from $29/month as an add-on; business plans priced separately",
+      "auth": "key",
+      "rate_limit": "5 calls/minute (free)",
+      "formats": [
+        "json",
+        "csv"
+      ],
+      "terms": {
+        "url": "https://massive.com/legal/market-data-terms-of-service",
+        "store": "conditional",
+        "redistribute": "no",
+        "commercial": "no",
+        "quote": "Redistribute, display, disseminate… the Market Data—or any data, charts, analytics… derived from the Market Data… to any third party",
+        "note": "Individual plans are personal and non-business; the ban covers derived charts and analytics too. Business use needs the business plans, and data must be deleted on termination."
+      },
+      "pit": {
+        "value": "partial",
+        "note": "Financials' filing_date is the most recent filing that included the period, not necessarily when it was first reported."
+      },
+      "gotchas": [
+        "polygon.io redirects to massive.com; update old base URLs and SDKs."
+      ],
+      "status": "active",
+      "verified": "2026-10-19"
+    },
+    {
+      "id": "nasdaq-com-api",
+      "name": "Nasdaq.com internal API",
+      "url": "https://www.nasdaq.com/market-activity",
+      "category": "reference",
+      "description": "The undocumented JSON endpoints behind nasdaq.com (api.nasdaq.com) for quotes, screeners and index member lists.",
+      "price": "free",
+      "auth": "user-agent",
+      "formats": [
+        "json"
+      ],
+      "terms": {
+        "url": "https://www.nasdaq.com/legal",
+        "store": "no",
+        "redistribute": "no",
+        "commercial": "no",
+        "quote": "Not access or use the Service, or any process, whether automated or manual, to capture data or content from the Service",
+        "note": "Personal, non-commercial use only; automated capture breaches the terms on their face. Listed here so you know before you build on it."
+      },
+      "pit": {
+        "value": "no"
+      },
+      "gotchas": [
+        "The edge resets the connection for User-Agents such as curl/*, python-requests/* or any containing \"@\" (tested 2026-10-19); a browser UA or none at all works.",
+        "No docs and no stability promise; response shapes change without notice."
+      ],
+      "status": "active",
+      "verified": "2026-10-19"
+    },
+    {
+      "id": "nasdaq-data-link",
+      "name": "Nasdaq Data Link (formerly Quandl)",
+      "url": "https://data.nasdaq.com",
+      "category": "prices",
+      "description": "Marketplace API for premium and some free datasets (tables and time series), each sold under its publisher's own terms.",
+      "price": "freemium",
+      "price_note": "a free key opens the free datasets; US equity sets (e.g. Sharadar, QuoteMedia) are priced per dataset",
+      "auth": "key",
+      "rate_limit": "300 calls/10 s, 50,000/day with a free key",
+      "formats": [
+        "json",
+        "csv",
+        "xml"
+      ],
+      "terms": {
+        "url": "https://data.nasdaq.com/terms",
+        "store": "conditional",
+        "redistribute": "no",
+        "commercial": "conditional",
+        "quote": "Such usage shall be for internal business purposes only unless otherwise detailed in the applicable Order Form.",
+        "note": "Internal use only unless the order form says otherwise; redistribution, including incorporating data in a database you share, is barred. Revised terms apply from 2026-11-01."
+      },
+      "pit": {
+        "value": "unclear",
+        "note": "Depends on the dataset."
+      },
+      "gotchas": [
+        "Anonymous calls are now refused (\"A valid API key is required\"), although older docs still describe an anonymous allowance.",
+        "The free WIKI prices set stopped updating in April 2018; there is no current free US price set."
+      ],
+      "status": "active",
+      "verified": "2026-10-19"
+    },
+    {
+      "id": "nasdaq-trader-symbol-directory",
+      "name": "Nasdaq Trader symbol directory",
+      "url": "https://www.nasdaqtrader.com/trader.aspx?id=symboldirdefs",
+      "category": "reference",
+      "description": "Pipe-delimited lists of every Nasdaq-listed and other US exchange-listed security, refreshed each trading day.",
+      "price": "free",
+      "auth": "none",
+      "formats": [
+        "txt"
+      ],
+      "terms": {
+        "url": "https://www.nasdaqtrader.com/Trader.aspx?id=CopyDisclaimMain",
+        "store": "no",
+        "redistribute": "no",
+        "commercial": "no",
+        "quote": "may not be copied, reproduced, transmitted, displayed, performed, distributed ... stored for subsequent use ... without the prior written consent of Nasdaq",
+        "note": "Site-wide terms allow one copy for personal, non-commercial use; anything else needs Nasdaq's written consent. Widely used regardless."
+      },
+      "pit": {
+        "value": "no",
+        "note": "Current snapshot only, no archive."
+      },
+      "gotchas": [
+        "The last line is a \"File Creation Time\" trailer, not a security.",
+        "Filter out Test Issue = Y rows.",
+        "otherlisted.txt carries three symbol conventions per row (CQS, NASDAQ, ACT), e.g. ABR-D vs ABRpD vs ABR$D for the same preferred."
+      ],
+      "status": "active",
+      "verified": "2026-10-19"
+    },
+    {
+      "id": "openfigi",
+      "name": "OpenFIGI API",
+      "url": "https://www.openfigi.com/api/documentation",
+      "category": "reference",
+      "description": "Maps tickers, CUSIPs, ISINs and other identifiers to FIGIs and back, with search and filter endpoints. Run by Bloomberg.",
+      "price": "free",
+      "price_note": "an optional free key raises the limits",
+      "auth": "none",
+      "rate_limit": "/v3/mapping 25 requests/min and 10 jobs/request without a key, 250/min and 100 jobs with one",
+      "formats": [
+        "json"
+      ],
+      "terms": {
+        "url": "https://www.openfigi.com/docs/terms-of-service",
+        "store": "yes",
+        "redistribute": "yes",
+        "commercial": "yes",
+        "quote": "may be freely reproduced, distributed, transmitted, used, modified, built upon, or otherwise exploited by anyone for any purpose, commercial or non-commercial",
+        "note": "FIGIs are dedicated to the public domain (ToS §1); the FIGI marks themselves are not licensed."
+      },
+      "pit": {
+        "value": "no",
+        "note": "Returns today's mapping only; a reused ticker maps to its current issuer."
+      },
+      "gotchas": [
+        "Without a key the 10-jobs-per-request cap, not the request rate, is what makes bulk CUSIP→ticker runs slow; expect bursty 429s and back off.",
+        "Pass exchCode (e.g. \"US\") or one identifier comes back as many listings.",
+        "Some CUSIPs never resolve (options, some foreign domiciles, delisted names); cache the misses or you will re-query them forever."
+      ],
+      "status": "active",
+      "verified": "2026-10-19"
+    },
+    {
+      "id": "sec-company-tickers",
+      "name": "SEC company tickers file",
+      "url": "https://www.sec.gov/search-filings/edgar-search-assistance/accessing-edgar-data",
+      "category": "reference",
+      "description": "Current ticker → CIK → company name map for SEC registrants (company_tickers.json; an exchange variant adds the listing venue).",
+      "price": "free",
+      "auth": "user-agent",
+      "rate_limit": "10 requests/second (SEC fair access)",
+      "formats": [
+        "json",
+        "txt"
+      ],
+      "terms": {
+        "url": "https://www.sec.gov/about/privacy-information",
+        "store": "yes",
+        "redistribute": "yes",
+        "commercial": "yes",
+        "note": "Same public-information policy as the EDGAR APIs; the SEC does not guarantee accuracy or scope."
+      },
+      "pit": {
+        "value": "no",
+        "note": "No dates and no history; delisted tickers and ticker changes simply vanish. Rebuild history from submissions.tickers or your own snapshots."
+      },
+      "gotchas": [
+        "company_tickers.json is an object keyed \"0\", \"1\", …, not an array.",
+        "One CIK can appear on several rows (share classes)."
+      ],
+      "status": "active",
+      "verified": "2026-10-19"
+    },
+    {
+      "id": "sec-edgar-apis",
+      "name": "SEC EDGAR APIs",
+      "url": "https://www.sec.gov/search-filings/edgar-application-programming-interfaces",
+      "category": "filings",
+      "description": "JSON filing history for every SEC registrant and every XBRL financial fact they reported, plus nightly bulk ZIPs.",
+      "price": "free",
+      "auth": "user-agent",
+      "rate_limit": "10 requests/second across all your machines",
+      "formats": [
+        "json",
+        "zip"
+      ],
+      "terms": {
+        "url": "https://www.sec.gov/about/privacy-information",
+        "store": "yes",
+        "redistribute": "yes",
+        "commercial": "yes",
+        "quote": "Information presented on sec.gov is considered public information and may be copied or further distributed by users of the web site without the SEC's permission.",
+        "note": "Cite the SEC; don't use its seal or the EDGAR name in a product name."
+      },
+      "pit": {
+        "value": "yes",
+        "note": "Submissions carry acceptanceDateTime; every XBRL fact carries the accession and filing date that reported it. The frames API keeps only the latest value, so it is not point-in-time."
+      },
+      "gotchas": [
+        "The User-Agent must name you and give an email (\"Company Name admin@example.com\") or requests get 403s; there is no CORS, so it can't be called from a browser.",
+        "A fact's filed date is the filing that reported it, which for older years is often a later 10-K's comparative column; for the original filing date take the earliest filing per period end.",
+        "filings.recent holds at most 1,000 rows; older filings sit in the paged files[] list."
+      ],
+      "status": "active",
+      "verified": "2026-10-19"
+    },
+    {
+      "id": "sec-fails-to-deliver",
+      "name": "SEC fails-to-deliver data",
+      "url": "https://www.sec.gov/data-research/sec-markets-data/fails-deliver-data",
+      "category": "ownership",
+      "description": "NSCC aggregate fails-to-deliver balances by security and settlement date, since 2004, in half-monthly files.",
+      "price": "free",
+      "auth": "user-agent",
+      "formats": [
+        "zip",
+        "txt"
+      ],
+      "terms": {
+        "url": "https://www.sec.gov/about/privacy-information",
+        "store": "yes",
+        "redistribute": "yes",
+        "commercial": "yes",
+        "note": "Public information; the SEC notes fails are not necessarily the result of short selling."
+      },
+      "pit": {
+        "value": "partial",
+        "note": "Rows carry only the settlement date and files appear about two weeks later with no publish date, so add the lag yourself."
+      },
+      "gotchas": [
+        "Values are cumulative outstanding balances, not new fails per day.",
+        "Before 2008-09-16 only fails of 10,000 shares or more are included."
+      ],
+      "status": "active",
+      "verified": "2026-10-19"
+    },
+    {
+      "id": "sec-financial-statement-data-sets",
+      "name": "SEC Financial Statement Data Sets",
+      "url": "https://www.sec.gov/data-research/sec-markets-data/financial-statement-data-sets",
+      "category": "filings",
+      "description": "Every XBRL face-financial number from every filing since 2009, flattened into quarterly ZIPs of tab-delimited tables.",
+      "price": "free",
+      "auth": "user-agent",
+      "rate_limit": "10 requests/second (SEC fair access)",
+      "formats": [
+        "zip",
+        "tsv"
+      ],
+      "terms": {
+        "url": "https://www.sec.gov/about/privacy-information",
+        "store": "yes",
+        "redistribute": "yes",
+        "commercial": "yes",
+        "note": "Public information; the SEC says the data sets don't replace the filings and their accuracy isn't guaranteed."
+      },
+      "pit": {
+        "value": "yes",
+        "note": "The sub table records each submission's acceptance timestamp; numbers are as filed, and prevrpt=1 marks one later amended."
+      },
+      "gotchas": [
+        "A filing accepted after 5:30 pm ET on a quarter's last business day lands in the next quarter's ZIP.",
+        "The Financial Statement and Notes variant adds footnotes but is monthly and runs to ~800 MB a file."
+      ],
+      "status": "active",
+      "verified": "2026-10-19"
+    },
+    {
+      "id": "sec-form-13f-data-sets",
+      "name": "SEC Form 13F data sets",
+      "url": "https://www.sec.gov/data-research/sec-markets-data/form-13f-data-sets",
+      "category": "ownership",
+      "description": "Institutional managers' 13F-HR holdings (information table, cover page, summary) flattened from XML filings since 2013.",
+      "price": "free",
+      "auth": "user-agent",
+      "rate_limit": "10 requests/second (SEC fair access)",
+      "formats": [
+        "zip",
+        "tsv"
+      ],
+      "terms": {
+        "url": "https://www.sec.gov/about/privacy-information",
+        "store": "yes",
+        "redistribute": "yes",
+        "commercial": "yes",
+        "note": "Public information; accuracy not guaranteed."
+      },
+      "pit": {
+        "value": "partial",
+        "note": "FILING_DATE has no time of day; amendments are flagged (ISAMENDMENT, AMENDMENTTYPE) and may restate or add holdings."
+      },
+      "gotchas": [
+        "VALUE is in thousands of dollars up to 2023-01-02 and in whole dollars from 2023-01-03.",
+        "Since March 2024 each file covers a window of filing dates (Mar–May, Jun–Aug, …), not a calendar quarter.",
+        "Holdings carry CUSIPs, not tickers (see OpenFIGI); famous managers often switch filing entities, so check a CIK's latest 13F-HR before trusting it."
+      ],
+      "status": "active",
+      "verified": "2026-10-19"
+    },
+    {
+      "id": "stooq",
+      "name": "Stooq",
+      "url": "https://stooq.com/db/h/",
+      "category": "prices",
+      "description": "Free bulk and per-symbol daily, hourly and 5-minute price files for US and world markets.",
+      "price": "free",
+      "auth": "none",
+      "formats": [
+        "csv"
+      ],
+      "terms": {
+        "url": "https://stooq.com/terms.html",
+        "store": "unclear",
+        "redistribute": "no",
+        "commercial": "no",
+        "quote": "This data is intended solely for personal use. Any commercial use is prohibited.",
+        "note": "Stated on the download page; the terms (§5.3) also forbid redistribution without Stooq's consent."
+      },
+      "pit": {
+        "value": "n/a",
+        "note": "Prices only."
+      },
+      "gotchas": [
+        "Pages now sit behind a JavaScript proof-of-work bot check, so scripted downloads get a challenge page or \"Access denied\"."
+      ],
+      "status": "active",
+      "verified": "2026-10-19"
+    },
+    {
+      "id": "sweetvaluelab-datasets",
+      "name": "SweetValueLab open datasets",
+      "url": "https://sweetvaluelab.com/datasets",
+      "category": "research",
+      "description": "Nightly CSV and JSON of model values for S&P 500 and Nasdaq-100 stocks, sector boards, a sentiment gauge and tracked 13F filers.",
+      "price": "free",
+      "auth": "none",
+      "formats": [
+        "csv",
+        "json"
+      ],
+      "terms": {
+        "url": "https://sweetvaluelab.com/datasets",
+        "store": "yes",
+        "redistribute": "conditional",
+        "commercial": "yes",
+        "quote": "Reuse, redistribute and build on them; credit SweetValueLab with a link.",
+        "note": "CC BY 4.0, so attribution with a link is the one condition."
+      },
+      "pit": {
+        "value": "partial",
+        "note": "Each JSON file carries its asOf date, but files are overwritten nightly; archive them yourself to build a history."
+      },
+      "gotchas": [
+        "Figures are model output computed from filings and market data, not raw vendor data; methods are described on each source page."
+      ],
+      "status": "active",
+      "verified": "2026-10-19",
+      "maintainer_project": true
+    },
+    {
+      "id": "sweetvaluelab-mcp",
+      "name": "SweetValueLab MCP server",
+      "url": "https://sweetvaluelab.com/datasets#mcp",
+      "category": "agents",
+      "description": "Read-only MCP server with stock search, model valuations and market context (Treasury curve, sentiment) for US stocks.",
+      "price": "free",
+      "auth": "none",
+      "terms": {
+        "url": "https://sweetvaluelab.com/terms",
+        "store": "unclear",
+        "redistribute": "conditional",
+        "commercial": "unclear",
+        "quote": "Do not resell or redistribute the underlying market data — we license it for this service, not for onward distribution.",
+        "note": "Model output is published as CC BY 4.0 datasets; the third-party market data behind it may not be redistributed."
+      },
+      "pit": {
+        "value": "no",
+        "note": "Answers from the latest nightly snapshot only."
+      },
+      "mcp": {
+        "endpoint": "https://api.sweetvaluelab.com/mcp",
+        "transport": "remote",
+        "read_only": true,
+        "note": "3 tools, no key or account; in the official MCP Registry as com.sweetvaluelab/valuation"
+      },
+      "status": "active",
+      "verified": "2026-10-19",
+      "maintainer_project": true
+    },
+    {
+      "id": "tiingo",
+      "name": "Tiingo",
+      "url": "https://www.tiingo.com/documentation/general/overview",
+      "category": "prices",
+      "description": "REST and WebSocket API for 30+ years of US end-of-day prices, IEX intraday, news, crypto and a fundamentals add-on.",
+      "price": "freemium",
+      "price_note": "free Starter; Power $30/month for individuals, $50/month for internal business use, display licenses from $250/month",
+      "auth": "key",
+      "rate_limit": "50 requests/hour, 1,000/day, 500 symbols/month (free)",
+      "formats": [
+        "json",
+        "csv"
+      ],
+      "terms": {
+        "url": "https://app.tiingo.com/tos",
+        "store": "conditional",
+        "redistribute": "conditional",
+        "commercial": "conditional",
+        "quote": "you may not write, save, archive, back up, or otherwise retain Tiingo Data in any persistent or durable storage.",
+        "note": "That clause covers the free and trial plans; paid plans may store while subscribed and must delete everything, backups included, on cancellation. Redistribution needs permission and \"Data sourced by Tiingo\"."
+      },
+      "pit": {
+        "value": "partial",
+        "note": "Statement dates are the date released to the public; no restatement flag is documented."
+      },
+      "gotchas": [
+        "Terms updated 2026-10-06 count reverse-engineerable derived series (rebased charts, a P/E from a Tiingo price) as Tiingo Data.",
+        "Using Tiingo data to validate another dataset is prohibited."
+      ],
+      "status": "active",
+      "verified": "2026-10-19"
+    },
+    {
+      "id": "treasury-fiscal-data-api",
+      "name": "Treasury Fiscal Data API",
+      "url": "https://fiscaldata.treasury.gov/api-documentation/",
+      "category": "macro",
+      "description": "REST API for federal finance datasets such as public debt, the Daily Treasury Statement, auctions and average interest rates.",
+      "price": "free",
+      "auth": "none",
+      "formats": [
+        "json",
+        "csv",
+        "xml"
+      ],
+      "terms": {
+        "url": "https://fiscaldata.treasury.gov/api-documentation/",
+        "store": "yes",
+        "redistribute": "yes",
+        "commercial": "yes",
+        "quote": "The data is offered free, without restriction",
+        "note": "Explicit open license covering commercial and non-commercial use; no attribution required."
+      },
+      "pit": {
+        "value": "partial",
+        "note": "Rows are keyed by record_date; no vintage or revision field."
+      },
+      "gotchas": [
+        "Every field comes back as a string, including \"null\".",
+        "The default page size is 100 rows; page through or set page[size]."
+      ],
+      "status": "active",
+      "verified": "2026-10-19"
+    },
+    {
+      "id": "treasury-par-yield-curve",
+      "name": "US Treasury daily par yield curve",
+      "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
+      "category": "macro",
+      "description": "Daily par yields from 1 month to 30 years since 1990, plus bill rates, real yields and long-term rates.",
+      "price": "free",
+      "auth": "none",
+      "formats": [
+        "xml",
+        "csv"
+      ],
+      "terms": {
+        "url": "https://home.treasury.gov/policy-issues/financing-the-government/interest-rate-statistics/treasury-yield-curve-methodology",
+        "store": "yes",
+        "redistribute": "yes",
+        "commercial": "yes",
+        "note": "No license is stated; public-domain status rests on 17 U.S.C. §105 for federal works. The usual source for a risk-free rate you are allowed to store."
+      },
+      "pit": {
+        "value": "partial",
+        "note": "Dated by observation day and usually published by 6 pm ET; no revision archive."
+      },
+      "gotchas": [
+        "Download one year per request; the \"all years\" CSV URL returns 403 and requests occasionally hang, so set a timeout.",
+        "Columns come and go (2 Mo from 2018, 4 Mo from 2022, 1.5 Mo from 2025; no 30Y 2002–2006)."
+      ],
+      "status": "active",
+      "verified": "2026-10-19"
+    },
+    {
+      "id": "twelve-data-mcp",
+      "name": "Twelve Data MCP server",
+      "url": "https://github.com/twelvedata/mcp",
+      "category": "agents",
+      "description": "Official MCP server for Twelve Data prices, 60+ technical indicators, fundamentals, filings and insider data.",
+      "price": "freemium",
+      "price_note": "same plans and limits as the API",
+      "auth": "account",
+      "terms": {
+        "url": "https://twelvedata.com/terms",
+        "store": "conditional",
+        "redistribute": "conditional",
+        "commercial": "conditional",
+        "note": "Same terms as the Twelve Data API."
+      },
+      "pit": {
+        "value": "no"
+      },
+      "mcp": {
+        "endpoint": "https://mcp.twelvedata.com/mcp",
+        "transport": "remote",
+        "read_only": true,
+        "note": "OAuth when hosted; self-hosted mode exposes auth tools to anyone who can reach its port"
+      },
+      "status": "active",
+      "verified": "2026-10-19"
+    },
+    {
+      "id": "twelve-data",
+      "name": "Twelve Data",
+      "url": "https://twelvedata.com/docs",
+      "category": "prices",
+      "description": "REST and WebSocket API for global stocks, ETFs, FX, crypto, technical indicators and fundamentals.",
+      "price": "freemium",
+      "price_note": "800 credits/day free; paid individual plans from $29–79/month (the pricing page shows both)",
+      "auth": "key",
+      "rate_limit": "8 credits/minute, 800/day (free); one income statement costs 100 credits",
+      "formats": [
+        "json",
+        "csv"
+      ],
+      "terms": {
+        "url": "https://twelvedata.com/terms",
+        "store": "conditional",
+        "redistribute": "conditional",
+        "commercial": "conditional",
+        "quote": "Use Free Tier data for commercial purposes",
+        "note": "That is on the list of things a customer shall not do. Paid data may be stored for internal use only; showing it to users needs a business tier or the redistribution add-on."
+      },
+      "pit": {
+        "value": "no",
+        "note": "Statements carry fiscal date, quarter and year only."
+      },
+      "gotchas": [
+        "Credits, not calls, are the limit, and fundamentals endpoints cost far more than quotes."
+      ],
+      "status": "active",
+      "verified": "2026-10-19"
+    },
+    {
+      "id": "wikipedia-index-constituents",
+      "name": "Wikipedia index constituent lists",
+      "url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "category": "reference",
+      "description": "Volunteer-maintained tables of current S&P 500 and Nasdaq-100 members, with pages of historical changes.",
+      "price": "free",
+      "auth": "user-agent",
+      "formats": [
+        "html"
+      ],
+      "terms": {
+        "url": "https://en.wikipedia.org/wiki/Wikipedia:Reusing_Wikipedia_content",
+        "store": "yes",
+        "redistribute": "conditional",
+        "commercial": "conditional",
+        "quote": "If you make modifications or additions to the page you re-use, you must license them under the Creative Commons Attribution-Share-Alike License 4.0 or later.",
+        "note": "CC BY-SA 4.0, so a republished derived list needs attribution and the same license. The index and its constituent data belong to S&P DJI and Nasdaq; GICS sector columns are proprietary."
+      },
+      "pit": {
+        "value": "partial",
+        "note": "The \"Historical components\" pages let you rebuild membership roughly, but they are crowd-edited and can lag the effective date."
+      },
+      "gotchas": [
+        "The Nasdaq-100 table lives on \"List of NASDAQ-100 companies\", not the index's own article; page restructures break scrapers.",
+        "Share classes (GOOGL/GOOG, BRK.B style tickers) give 503 rows for the S&P 500.",
+        "Wikimedia asks scripts for a descriptive User-Agent with contact details and may block ones without."
+      ],
+      "status": "active",
+      "verified": "2026-10-19"
+    },
+    {
+      "id": "yfinance",
+      "name": "Yahoo Finance via yfinance",
+      "url": "https://github.com/ranaroussi/yfinance",
+      "category": "prices",
+      "description": "Unofficial Python library that pulls prices, statements and options chains from Yahoo Finance's internal endpoints.",
+      "price": "free",
+      "auth": "none",
+      "formats": [
+        "dataframe"
+      ],
+      "terms": {
+        "url": "https://legal.yahoo.com/us/en/yahoo/terms/otos/index.html",
+        "store": "no",
+        "redistribute": "no",
+        "commercial": "no",
+        "quote": "access or collect data… using any automated means… including… scrapers… for any purpose without our express, prior permission",
+        "note": "That is on Yahoo's list of banned conduct; yfinance itself says it is intended for personal use and is not affiliated with Yahoo. Fine in a notebook, not in a product."
+      },
+      "pit": {
+        "value": "no"
+      },
+      "gotchas": [
+        "Yahoo's terms also ban building a database or feed that substitutes for its services.",
+        "Endpoints are unofficial and break or throttle without notice."
+      ],
+      "status": "active",
+      "verified": "2026-10-19"
+    }
+  ]
+}

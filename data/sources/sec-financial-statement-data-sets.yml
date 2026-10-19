@@ -1,0 +1,22 @@
+name: SEC Financial Statement Data Sets
+url: https://www.sec.gov/data-research/sec-markets-data/financial-statement-data-sets
+category: filings
+description: Every XBRL face-financial number from every filing since 2009, flattened into quarterly ZIPs of tab-delimited tables.
+price: free
+auth: user-agent
+rate_limit: 10 requests/second (SEC fair access)
+formats: [zip, tsv]
+terms:
+  url: https://www.sec.gov/about/privacy-information
+  store: "yes"
+  redistribute: "yes"
+  commercial: "yes"
+  note: Public information; the SEC says the data sets don't replace the filings and their accuracy isn't guaranteed.
+pit:
+  value: "yes"
+  note: The sub table records each submission's acceptance timestamp; numbers are as filed, and prevrpt=1 marks one later amended.
+gotchas:
+  - A filing accepted after 5:30 pm ET on a quarter's last business day lands in the next quarter's ZIP.
+  - The Financial Statement and Notes variant adds footnotes but is monthly and runs to ~800 MB a file.
+status: active
+verified: 2026-10-19

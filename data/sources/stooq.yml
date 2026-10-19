@@ -1,0 +1,21 @@
+name: Stooq
+url: https://stooq.com/db/h/
+category: prices
+description: Free bulk and per-symbol daily, hourly and 5-minute price files for US and world markets.
+price: free
+auth: none
+formats: [csv]
+terms:
+  url: https://stooq.com/terms.html
+  store: unclear
+  redistribute: "no"
+  commercial: "no"
+  quote: "This data is intended solely for personal use. Any commercial use is prohibited."
+  note: Stated on the download page; the terms (§5.3) also forbid redistribution without Stooq's consent.
+pit:
+  value: n/a
+  note: Prices only.
+gotchas:
+  - Pages now sit behind a JavaScript proof-of-work bot check, so scripted downloads get a challenge page or "Access denied".
+status: active
+verified: 2026-10-19

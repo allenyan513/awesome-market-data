@@ -1,0 +1,23 @@
+name: SEC Form 13F data sets
+url: https://www.sec.gov/data-research/sec-markets-data/form-13f-data-sets
+category: ownership
+description: Institutional managers' 13F-HR holdings (information table, cover page, summary) flattened from XML filings since 2013.
+price: free
+auth: user-agent
+rate_limit: 10 requests/second (SEC fair access)
+formats: [zip, tsv]
+terms:
+  url: https://www.sec.gov/about/privacy-information
+  store: "yes"
+  redistribute: "yes"
+  commercial: "yes"
+  note: Public information; accuracy not guaranteed.
+pit:
+  value: partial
+  note: FILING_DATE has no time of day; amendments are flagged (ISAMENDMENT, AMENDMENTTYPE) and may restate or add holdings.
+gotchas:
+  - VALUE is in thousands of dollars up to 2023-01-02 and in whole dollars from 2023-01-03.
+  - Since March 2024 each file covers a window of filing dates (Mar–May, Jun–Aug, …), not a calendar quarter.
+  - Holdings carry CUSIPs, not tickers (see OpenFIGI); famous managers often switch filing entities, so check a CIK's latest 13F-HR before trusting it.
+status: active
+verified: 2026-10-19

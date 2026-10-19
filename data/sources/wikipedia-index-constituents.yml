@@ -1,0 +1,23 @@
+name: Wikipedia index constituent lists
+url: https://en.wikipedia.org/wiki/List_of_S%26P_500_companies
+category: reference
+description: Volunteer-maintained tables of current S&P 500 and Nasdaq-100 members, with pages of historical changes.
+price: free
+auth: user-agent
+formats: [html]
+terms:
+  url: https://en.wikipedia.org/wiki/Wikipedia:Reusing_Wikipedia_content
+  store: yes
+  redistribute: conditional
+  commercial: conditional
+  quote: "If you make modifications or additions to the page you re-use, you must license them under the Creative Commons Attribution-Share-Alike License 4.0 or later."
+  note: CC BY-SA 4.0, so a republished derived list needs attribution and the same license. The index and its constituent data belong to S&P DJI and Nasdaq; GICS sector columns are proprietary.
+pit:
+  value: partial
+  note: The "Historical components" pages let you rebuild membership roughly, but they are crowd-edited and can lag the effective date.
+gotchas:
+  - The Nasdaq-100 table lives on "List of NASDAQ-100 companies", not the index's own article; page restructures break scrapers.
+  - Share classes (GOOGL/GOOG, BRK.B style tickers) give 503 rows for the S&P 500.
+  - Wikimedia asks scripts for a descriptive User-Agent with contact details and may block ones without.
+status: active
+verified: 2026-10-19

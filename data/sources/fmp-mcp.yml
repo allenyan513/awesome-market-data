@@ -1,0 +1,22 @@
+name: Financial Modeling Prep MCP server
+url: https://site.financialmodelingprep.com/developer/docs/mcp-server
+category: agents
+description: Official hosted MCP server wrapping FMP's REST endpoints; calls count toward your plan's limits.
+price: freemium
+price_note: same plans and limits as the API
+auth: key
+terms:
+  url: https://site.financialmodelingprep.com/terms-of-service
+  store: conditional
+  redistribute: "no"
+  commercial: "no"
+  note: Same terms as the FMP API.
+pit:
+  value: partial
+mcp:
+  endpoint: https://financialmodelingprep.com/mcp
+  transport: remote
+  read_only: true
+  note: API key in the query string (?apikey=)
+status: active
+verified: 2026-10-19

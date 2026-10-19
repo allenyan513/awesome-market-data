@@ -1,0 +1,23 @@
+name: Damodaran Online datasets
+url: https://pages.stern.nyu.edu/~adamodar/New_Home_Page/data.html
+category: research
+description: Aswath Damodaran's yearly industry datasets (betas, equity risk premium, margins, multiples, cost of capital) for the US and other regions.
+price: free
+auth: none
+formats: [xls, html]
+terms:
+  url: https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datahistory.html#rules
+  store: "yes"
+  redistribute: unclear
+  commercial: unclear
+  quote: "I want the data to be widely used and to be a help, rather than a hindrance."
+  note: Informal permission and optional acknowledgement, but no formal license; the underlying inputs come from Bloomberg, Capital IQ and others.
+pit:
+  value: partial
+  note: Past vintages are archived by update date; current files are overwritten each January.
+gotchas:
+  - The main update lands in the first two weeks of January; inputs are trailing twelve months through Q3 of the prior year.
+  - Industry definitions change between vintages, so a series across years is not like for like.
+  - The monthly implied equity risk premium is a separate page and moves more than the January table.
+status: active
+verified: 2026-10-19

@@ -1,0 +1,23 @@
+name: Twelve Data
+url: https://twelvedata.com/docs
+category: prices
+description: REST and WebSocket API for global stocks, ETFs, FX, crypto, technical indicators and fundamentals.
+price: freemium
+price_note: 800 credits/day free; paid individual plans from $29–79/month (the pricing page shows both)
+auth: key
+rate_limit: 8 credits/minute, 800/day (free); one income statement costs 100 credits
+formats: [json, csv]
+terms:
+  url: https://twelvedata.com/terms
+  store: conditional
+  redistribute: conditional
+  commercial: conditional
+  quote: "Use Free Tier data for commercial purposes"
+  note: That is on the list of things a customer shall not do. Paid data may be stored for internal use only; showing it to users needs a business tier or the redistribution add-on.
+pit:
+  value: "no"
+  note: Statements carry fiscal date, quarter and year only.
+gotchas:
+  - Credits, not calls, are the limit, and fundamentals endpoints cost far more than quotes.
+status: active
+verified: 2026-10-19

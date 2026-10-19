@@ -1,0 +1,22 @@
+name: Finnhub MCP server
+url: https://finnhub.io/static/finnhub-how-to-connect-mcp-server.html
+category: agents
+description: Official hosted MCP server with about 70 Finnhub tools covering fundamentals, estimates, filings, fund holdings and economic data.
+price: freemium
+price_note: same plans and limits as the API
+auth: account
+terms:
+  url: https://finnhub.io/terms-of-service
+  store: conditional
+  redistribute: "no"
+  commercial: "no"
+  note: Same terms as the Finnhub API.
+pit:
+  value: partial
+mcp:
+  endpoint: https://mcp.finnhub.io/mcp
+  transport: remote
+  read_only: true
+  note: OAuth with a Finnhub account (mcp:read scope)
+status: active
+verified: 2026-10-19

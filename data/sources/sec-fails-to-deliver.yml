@@ -1,0 +1,21 @@
+name: SEC fails-to-deliver data
+url: https://www.sec.gov/data-research/sec-markets-data/fails-deliver-data
+category: ownership
+description: NSCC aggregate fails-to-deliver balances by security and settlement date, since 2004, in half-monthly files.
+price: free
+auth: user-agent
+formats: [zip, txt]
+terms:
+  url: https://www.sec.gov/about/privacy-information
+  store: "yes"
+  redistribute: "yes"
+  commercial: "yes"
+  note: Public information; the SEC notes fails are not necessarily the result of short selling.
+pit:
+  value: partial
+  note: Rows carry only the settlement date and files appear about two weeks later with no publish date, so add the lag yourself.
+gotchas:
+  - Values are cumulative outstanding balances, not new fails per day.
+  - Before 2008-09-16 only fails of 10,000 shares or more are included.
+status: active
+verified: 2026-10-19

@@ -1,0 +1,22 @@
+name: Kenneth R. French Data Library
+url: https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html
+category: research
+description: Fama-French factor returns (3-factor, 5-factor, momentum) and sorted portfolios, monthly, weekly and daily, from 1926.
+price: free
+auth: none
+formats: [csv, zip]
+terms:
+  url: https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html
+  store: unclear
+  redistribute: unclear
+  commercial: unclear
+  note: The page states only "Copyright Eugene F. Fama and Kenneth R. French"; research use is near-universal but nothing grants it.
+pit:
+  value: partial
+  note: The full history is rebuilt every month and can change when CRSP revises; only a few series have July archives.
+gotchas:
+  - Updated monthly with about a two-month lag.
+  - From the January 2025 release monthly returns follow CRSP's new CIZ format (compounded daily, dividends reinvested on ex-dates), so old downloads won't match.
+  - Missing values are -99.99 or -999, and each file stacks several tables (monthly, then annual).
+status: active
+verified: 2026-10-19

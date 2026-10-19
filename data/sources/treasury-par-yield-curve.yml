@@ -1,0 +1,21 @@
+name: US Treasury daily par yield curve
+url: https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve
+category: macro
+description: Daily par yields from 1 month to 30 years since 1990, plus bill rates, real yields and long-term rates.
+price: free
+auth: none
+formats: [xml, csv]
+terms:
+  url: https://home.treasury.gov/policy-issues/financing-the-government/interest-rate-statistics/treasury-yield-curve-methodology
+  store: "yes"
+  redistribute: "yes"
+  commercial: "yes"
+  note: No license is stated; public-domain status rests on 17 U.S.C. §105 for federal works. The usual source for a risk-free rate you are allowed to store.
+pit:
+  value: partial
+  note: Dated by observation day and usually published by 6 pm ET; no revision archive.
+gotchas:
+  - Download one year per request; the "all years" CSV URL returns 403 and requests occasionally hang, so set a timeout.
+  - Columns come and go (2 Mo from 2018, 4 Mo from 2022, 1.5 Mo from 2025; no 30Y 2002–2006).
+status: active
+verified: 2026-10-19

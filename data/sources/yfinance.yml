@@ -1,0 +1,21 @@
+name: Yahoo Finance via yfinance
+url: https://github.com/ranaroussi/yfinance
+category: prices
+description: Unofficial Python library that pulls prices, statements and options chains from Yahoo Finance's internal endpoints.
+price: free
+auth: none
+formats: [dataframe]
+terms:
+  url: https://legal.yahoo.com/us/en/yahoo/terms/otos/index.html
+  store: "no"
+  redistribute: "no"
+  commercial: "no"
+  quote: "access or collect data… using any automated means… including… scrapers… for any purpose without our express, prior permission"
+  note: That is on Yahoo's list of banned conduct; yfinance itself says it is intended for personal use and is not affiliated with Yahoo. Fine in a notebook, not in a product.
+pit:
+  value: "no"
+gotchas:
+  - Yahoo's terms also ban building a database or feed that substitutes for its services.
+  - Endpoints are unofficial and break or throttle without notice.
+status: active
+verified: 2026-10-19

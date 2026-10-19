@@ -1,0 +1,22 @@
+name: SweetValueLab open datasets
+url: https://sweetvaluelab.com/datasets
+category: research
+description: Nightly CSV and JSON of model values for S&P 500 and Nasdaq-100 stocks, sector boards, a sentiment gauge and tracked 13F filers.
+price: free
+auth: none
+formats: [csv, json]
+terms:
+  url: https://sweetvaluelab.com/datasets
+  store: yes
+  redistribute: conditional
+  commercial: yes
+  quote: "Reuse, redistribute and build on them; credit SweetValueLab with a link."
+  note: CC BY 4.0, so attribution with a link is the one condition.
+pit:
+  value: partial
+  note: Each JSON file carries its asOf date, but files are overwritten nightly; archive them yourself to build a history.
+gotchas:
+  - Figures are model output computed from filings and market data, not raw vendor data; methods are described on each source page.
+status: active
+verified: 2026-10-19
+maintainer_project: true

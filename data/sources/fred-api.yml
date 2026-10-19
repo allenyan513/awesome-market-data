@@ -1,0 +1,22 @@
+name: FRED and ALFRED API
+url: https://fred.stlouisfed.org/docs/api/fred/
+category: macro
+description: The St. Louis Fed's API to 800,000+ economic series aggregated from many publishers; ALFRED adds the historical vintages.
+price: free
+auth: key
+formats: [json, xml, csv]
+terms:
+  url: https://fred.stlouisfed.org/legal/terms/
+  store: "no"
+  redistribute: "no"
+  commercial: conditional
+  quote: "storing, caching, or archiving any portion of the FRED® Services or FRED® Content"
+  note: That is on the list of prohibited uses. The general license is personal and non-commercial, third-party series marked copyright need their owner's permission, and AI/ML training is prohibited. Fine for exploring, not for a pipeline.
+pit:
+  value: "yes"
+  note: realtime_start/realtime_end and the vintage output types return values as they were known on past dates; ALFRED is the best free real-time macro source.
+gotchas:
+  - The older API terms page (docs/api/terms_of_use.html) lacks the storage and ML clauses; the binding text is /legal/terms/.
+  - Storage is banned even for series that are public domain at their source, so fetch Treasury, BLS, BEA or Fed Board data from the original publisher instead.
+status: active
+verified: 2026-10-19

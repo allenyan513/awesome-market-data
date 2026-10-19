@@ -1,0 +1,22 @@
+name: SEC company tickers file
+url: https://www.sec.gov/search-filings/edgar-search-assistance/accessing-edgar-data
+category: reference
+description: Current ticker → CIK → company name map for SEC registrants (company_tickers.json; an exchange variant adds the listing venue).
+price: free
+auth: user-agent
+rate_limit: 10 requests/second (SEC fair access)
+formats: [json, txt]
+terms:
+  url: https://www.sec.gov/about/privacy-information
+  store: "yes"
+  redistribute: "yes"
+  commercial: "yes"
+  note: Same public-information policy as the EDGAR APIs; the SEC does not guarantee accuracy or scope.
+pit:
+  value: "no"
+  note: No dates and no history; delisted tickers and ticker changes simply vanish. Rebuild history from submissions.tickers or your own snapshots.
+gotchas:
+  - company_tickers.json is an object keyed "0", "1", …, not an array.
+  - One CIK can appear on several rows (share classes).
+status: active
+verified: 2026-10-19

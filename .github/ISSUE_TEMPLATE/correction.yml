@@ -1,0 +1,25 @@
+name: Report outdated or wrong information
+description: Terms changed, a link died, a limit is different, or we read the terms wrong.
+title: "Fix: "
+labels: ["correction"]
+body:
+  - type: input
+    id: entry
+    attributes:
+      label: Which entry?
+      description: Its name, or the file in data/sources/.
+    validations:
+      required: true
+  - type: textarea
+    id: wrong
+    attributes:
+      label: What is wrong, and what should it say?
+    validations:
+      required: true
+  - type: input
+    id: evidence
+    attributes:
+      label: Link to the evidence
+      description: The terms page, pricing page or announcement that shows it.
+    validations:
+      required: true

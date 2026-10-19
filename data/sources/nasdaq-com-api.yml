@@ -1,0 +1,21 @@
+name: Nasdaq.com internal API
+url: https://www.nasdaq.com/market-activity
+category: reference
+description: The undocumented JSON endpoints behind nasdaq.com (api.nasdaq.com) for quotes, screeners and index member lists.
+price: free
+auth: user-agent
+formats: [json]
+terms:
+  url: https://www.nasdaq.com/legal
+  store: "no"
+  redistribute: "no"
+  commercial: "no"
+  quote: "Not access or use the Service, or any process, whether automated or manual, to capture data or content from the Service"
+  note: Personal, non-commercial use only; automated capture breaches the terms on their face. Listed here so you know before you build on it.
+pit:
+  value: "no"
+gotchas:
+  - The edge resets the connection for User-Agents such as curl/*, python-requests/* or any containing "@" (tested 2026-10-19); a browser UA or none at all works.
+  - No docs and no stability promise; response shapes change without notice.
+status: active
+verified: 2026-10-19

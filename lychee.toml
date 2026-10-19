@@ -1,0 +1,17 @@
+# The User-Agent is passed by .github/workflows/links.yml: sec.gov answers 403
+# unless it contains a contact email, which comes from the LINK_CHECK_CONTACT
+# repository variable.
+max_concurrency = 4
+max_retries = 3
+timeout = 30
+# 429 means the server is up and throttling us, not that the link is dead.
+accept = ["200..=299", "429"]
+exclude = [
+  # Relative links into this repository's own GitHub pages.
+  "^\\.\\./\\.\\./issues",
+  # Both block every non-browser User-Agent (403 / connection reset), so a
+  # check from CI says nothing. Checked by hand on each entry's verified date.
+  "^https://site\\.financialmodelingprep\\.com/",
+  "^https://financialmodelingprep\\.com/",
+  "^https://www\\.nasdaq\\.com/",
+]

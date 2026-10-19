@@ -1,0 +1,22 @@
+name: BEA API
+url: https://apps.bea.gov/API/signup/
+category: macro
+description: API for Bureau of Economic Analysis data, including GDP and the national accounts (NIPA), regional and industry accounts.
+price: free
+auth: key
+rate_limit: 100 requests/min, 100 MB/min, 30 errors/min (then a ~1-minute lockout)
+formats: [json, xml]
+terms:
+  url: https://apps.bea.gov/API/_pdf/bea_api_tos.pdf
+  store: "yes"
+  redistribute: "yes"
+  commercial: "yes"
+  quote: "This product uses the Bureau of Economic Analysis (BEA) Data API but is not endorsed or certified by BEA."
+  note: That notice must be shown prominently; don't modify the data and still attribute it to BEA. Public domain as a federal work.
+pit:
+  value: "no"
+  note: Latest estimates only. Real-time vintages live elsewhere (ALFRED, the Philadelphia Fed's real-time data set).
+gotchas:
+  - Annual comprehensive revisions rewrite years of history in place.
+status: active
+verified: 2026-10-19

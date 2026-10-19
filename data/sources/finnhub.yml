@@ -1,0 +1,23 @@
+name: Finnhub
+url: https://finnhub.io/docs/api
+category: prices
+description: REST and WebSocket API for quotes, company fundamentals, as-reported SEC financials, estimates and news.
+price: freemium
+price_note: free US tier; paid plans from about $50/month, all licensed for personal use
+auth: key
+rate_limit: 60 calls/minute and 30 calls/second (free)
+formats: [json]
+terms:
+  url: https://finnhub.io/terms-of-service
+  store: conditional
+  redistribute: "no"
+  commercial: "no"
+  quote: "You hereby agree to not redistribute or share access to data or derived results from the data obtained from Finnhub with anyone or any 3rd party without written approval from Finnhub."
+  note: Every listed plan is personal; businesses need written approval even for internal use, and data must be deleted when the subscription ends.
+pit:
+  value: partial
+  note: The free "Financials As Reported" endpoint carries filedDate and acceptedDate; standardized statements are paid.
+gotchas:
+  - Standardized statements, dividends and estimates are not on the free tier.
+status: active
+verified: 2026-10-19

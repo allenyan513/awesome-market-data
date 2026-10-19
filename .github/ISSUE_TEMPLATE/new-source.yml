@@ -1,0 +1,64 @@
+name: Suggest a source
+description: Propose a data source, API or MCP server for the list.
+title: "Add: "
+labels: ["new source"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks! Entries need a terms page: the list's value is that every source says whether you may store, redistribute and use its data commercially. If you are the vendor, that's fine, just tick the box below.
+  - type: input
+    id: name
+    attributes:
+      label: Name
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Docs or landing page URL
+    validations:
+      required: true
+  - type: input
+    id: terms
+    attributes:
+      label: Terms of service / license URL
+      description: The page that answers whether the data may be stored, redistributed and used commercially.
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - SEC filings and fundamentals
+        - Price and fundamentals APIs
+        - Ownership, short interest and trading activity
+        - Rates and macro
+        - Reference data and identifiers
+        - Research datasets
+        - Agent-ready (MCP servers)
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What data does it provide?
+      description: One or two factual sentences. Price and free-tier limits if any.
+    validations:
+      required: true
+  - type: textarea
+    id: rights
+    attributes:
+      label: What do the terms say?
+      description: Store / redistribute / commercial use, with the decisive sentence quoted if you can. "Not sure" is a fine answer.
+  - type: textarea
+    id: gotchas
+    attributes:
+      label: Gotchas you hit (optional)
+  - type: checkboxes
+    id: disclosure
+    attributes:
+      label: Disclosure
+      options:
+        - label: I work for or own this product.

@@ -1,0 +1,23 @@
+name: Cboe VIX historical data
+url: https://www.cboe.com/tradable_products/vix/vix_historical_data/
+category: research
+description: Daily open, high, low and close of the Cboe Volatility Index from 1990, as one CSV updated each trading day.
+price: free
+price_note: intraday and custom history is sold through Cboe DataShop
+auth: none
+formats: [csv]
+terms:
+  url: https://www.cboe.com/terms
+  store: "no"
+  redistribute: "no"
+  commercial: "no"
+  quote: "You may not otherwise copy, reproduce, alter, store ... in an electronic retrieval system, license, transmit, display ... create a derivative work"
+  note: One copy for personal, non-commercial use; anything else needs a signed license agreement with Cboe.
+pit:
+  value: "yes"
+  note: Index closes are not restated after the fact (no revision notice found).
+gotchas:
+  - Early rows have open = high = low = close (close only).
+  - Dates are MM/DD/YYYY, and the CDN URL redirects, so follow redirects.
+status: active
+verified: 2026-10-19

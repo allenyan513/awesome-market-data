@@ -1,0 +1,24 @@
+name: Nasdaq Data Link (formerly Quandl)
+url: https://data.nasdaq.com
+category: prices
+description: Marketplace API for premium and some free datasets (tables and time series), each sold under its publisher's own terms.
+price: freemium
+price_note: a free key opens the free datasets; US equity sets (e.g. Sharadar, QuoteMedia) are priced per dataset
+auth: key
+rate_limit: 300 calls/10 s, 50,000/day with a free key
+formats: [json, csv, xml]
+terms:
+  url: https://data.nasdaq.com/terms
+  store: conditional
+  redistribute: "no"
+  commercial: conditional
+  quote: "Such usage shall be for internal business purposes only unless otherwise detailed in the applicable Order Form."
+  note: Internal use only unless the order form says otherwise; redistribution, including incorporating data in a database you share, is barred. Revised terms apply from 2026-11-01.
+pit:
+  value: unclear
+  note: Depends on the dataset.
+gotchas:
+  - Anonymous calls are now refused ("A valid API key is required"), although older docs still describe an anonymous allowance.
+  - The free WIKI prices set stopped updating in April 2018; there is no current free US price set.
+status: active
+verified: 2026-10-19

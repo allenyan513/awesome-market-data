@@ -1,0 +1,24 @@
+name: Alpha Vantage
+url: https://www.alphavantage.co/documentation/
+category: prices
+description: REST API for US and global daily and intraday prices, fundamentals, earnings, FX, crypto and economic indicators.
+price: freemium
+price_note: 25 requests/day free; premium from $49.99/month
+auth: key
+rate_limit: 25 requests/day (free)
+formats: [json, csv]
+terms:
+  url: https://www.alphavantage.co/terms_of_service/
+  store: unclear
+  redistribute: "no"
+  commercial: conditional
+  quote: "for personal, non-commercial use, unless you and Alpha Vantage have agreed otherwise in writing"
+  note: Applies to paid plans too; showing data to anyone else counts as commercial and needs a written agreement. The terms say nothing about storage.
+pit:
+  value: partial
+  note: Statements carry only fiscalDateEnding; the earnings endpoint has reportedDate and reportTime, usable as an availability proxy.
+gotchas:
+  - The free tier returns only the latest 100 daily points (outputsize=compact); full history is premium.
+  - A premium plan raises limits but does not by itself grant commercial rights.
+status: active
+verified: 2026-10-19

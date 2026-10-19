@@ -1,0 +1,22 @@
+name: Twelve Data MCP server
+url: https://github.com/twelvedata/mcp
+category: agents
+description: Official MCP server for Twelve Data prices, 60+ technical indicators, fundamentals, filings and insider data.
+price: freemium
+price_note: same plans and limits as the API
+auth: account
+terms:
+  url: https://twelvedata.com/terms
+  store: conditional
+  redistribute: conditional
+  commercial: conditional
+  note: Same terms as the Twelve Data API.
+pit:
+  value: "no"
+mcp:
+  endpoint: https://mcp.twelvedata.com/mcp
+  transport: remote
+  read_only: true
+  note: OAuth when hosted; self-hosted mode exposes auth tools to anyone who can reach its port
+status: active
+verified: 2026-10-19

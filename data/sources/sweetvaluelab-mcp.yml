@@ -1,0 +1,24 @@
+name: SweetValueLab MCP server
+url: https://sweetvaluelab.com/datasets#mcp
+category: agents
+description: Read-only MCP server with stock search, model valuations and market context (Treasury curve, sentiment) for US stocks.
+price: free
+auth: none
+terms:
+  url: https://sweetvaluelab.com/terms
+  store: unclear
+  redistribute: conditional
+  commercial: unclear
+  quote: "Do not resell or redistribute the underlying market data — we license it for this service, not for onward distribution."
+  note: Model output is published as CC BY 4.0 datasets; the third-party market data behind it may not be redistributed.
+pit:
+  value: no
+  note: Answers from the latest nightly snapshot only.
+mcp:
+  endpoint: https://api.sweetvaluelab.com/mcp
+  transport: remote
+  read_only: true
+  note: 3 tools, no key or account; in the official MCP Registry as com.sweetvaluelab/valuation
+status: active
+verified: 2026-10-19
+maintainer_project: true

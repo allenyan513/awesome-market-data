@@ -1,0 +1,23 @@
+name: FINRA short interest and short sale volume
+url: https://www.finra.org/finra-data/browse-catalog/short-sale-volume-data/daily-short-sale-volume-files
+category: ownership
+description: Twice-monthly short interest positions and daily off-exchange short sale volume by security, as files and an API.
+price: freemium
+price_note: files and Public API credentials free; firm API credentials $1,650/month
+auth: none
+rate_limit: "API: 1,200 sync requests/min per IP, 5,000 records per call"
+formats: [txt, csv, json]
+terms:
+  url: https://developer.finra.org/specific-terms-equity-data
+  store: "no"
+  redistribute: conditional
+  commercial: "no"
+  note: Website terms limit use to your own non-commercial use and bar building a database from the site; the API equity terms allow redistribution only free of charge, non-commercially, crediting FINRA. Commercial use needs written permission.
+pit:
+  value: partial
+  note: Short interest is keyed by settlement date and published days later; daily volume files can be replaced by "updated" files with no version field.
+gotchas:
+  - Daily short sale volume is not short interest, and it covers off-exchange (TRF/ADF/ORF) trades only.
+  - Not public domain despite FINRA's regulatory role.
+status: active
+verified: 2026-10-19

@@ -1,0 +1,21 @@
+name: Chicago Fed National Financial Conditions Index
+url: https://www.chicagofed.org/research/data/nfci/current-data
+category: macro
+description: Weekly index of US financial conditions since 1971, built from 105 measures, with risk, credit and leverage subindexes.
+price: free
+auth: none
+formats: [csv, xlsx]
+terms:
+  url: https://www.chicagofed.org/utilities/legal-notices
+  store: unclear
+  redistribute: conditional
+  commercial: "no"
+  note: The Bank allows reproduction of its materials with credit and not for commercial gain; other republication needs written permission. The notices don't address data series directly.
+pit:
+  value: partial
+  note: The whole history can be revised every week and no vintage archive is published, so a naive backtest looks ahead.
+gotchas:
+  - The date column is the Friday of the measured week, not the Wednesday release date.
+  - Use api.data.chicagofed.org/NFCI/nfci-data-series-csv.csv; the older /-/media/ download link stopped updating in April 2026.
+status: active
+verified: 2026-10-19

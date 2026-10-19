@@ -1,0 +1,24 @@
+name: SEC EDGAR APIs
+url: https://www.sec.gov/search-filings/edgar-application-programming-interfaces
+category: filings
+description: JSON filing history for every SEC registrant and every XBRL financial fact they reported, plus nightly bulk ZIPs.
+price: free
+auth: user-agent
+rate_limit: 10 requests/second across all your machines
+formats: [json, zip]
+terms:
+  url: https://www.sec.gov/about/privacy-information
+  store: "yes"
+  redistribute: "yes"
+  commercial: "yes"
+  quote: "Information presented on sec.gov is considered public information and may be copied or further distributed by users of the web site without the SEC's permission."
+  note: Cite the SEC; don't use its seal or the EDGAR name in a product name.
+pit:
+  value: "yes"
+  note: Submissions carry acceptanceDateTime; every XBRL fact carries the accession and filing date that reported it. The frames API keeps only the latest value, so it is not point-in-time.
+gotchas:
+  - The User-Agent must name you and give an email ("Company Name admin@example.com") or requests get 403s; there is no CORS, so it can't be called from a browser.
+  - A fact's filed date is the filing that reported it, which for older years is often a later 10-K's comparative column; for the original filing date take the earliest filing per period end.
+  - filings.recent holds at most 1,000 rows; older filings sit in the paged files[] list.
+status: active
+verified: 2026-10-19

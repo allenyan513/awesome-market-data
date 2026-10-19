@@ -1,0 +1,25 @@
+name: Financial Modeling Prep
+url: https://site.financialmodelingprep.com/developer/docs
+category: prices
+description: REST API for US and global prices, financial statements, ratios, estimates, 13F holdings, transcripts and news.
+price: freemium
+price_note: 250 calls/day free; Starter $29/month; display rights only under a separate enterprise agreement
+auth: key
+rate_limit: 250 calls/day and 500 MB per 30 days (free)
+formats: [json, csv]
+terms:
+  url: https://site.financialmodelingprep.com/terms-of-service
+  store: conditional
+  redistribute: "no"
+  commercial: "no"
+  quote: "Displaying or redistributing data sourced from FMP requires a specific Data Display and Licensing Agreement with FMP."
+  note: Self-serve plans are licensed for personal, non-commercial use and may not feed a multi-user site or app; data, caches included, must be deleted on termination.
+pit:
+  value: partial
+  note: Statement rows carry filingDate and acceptedDate (naive US Eastern time), but there is one row per period, overwritten when the 10-K replaces earnings-release figures.
+gotchas:
+  - Annual statements appear on earnings-release day, before the 10-K, with zeros for lines the release omitted (capex 0, whole cash flow statements 0).
+  - Some endpoints (e.g. grades) ignore from/to/limit and always return the full history; filter client-side.
+  - A lapsed subscription shows up as HTTP 429 on every endpoint, which looks like rate limiting. Check billing first.
+status: active
+verified: 2026-10-19

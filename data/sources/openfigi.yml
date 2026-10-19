@@ -1,0 +1,25 @@
+name: OpenFIGI API
+url: https://www.openfigi.com/api/documentation
+category: reference
+description: Maps tickers, CUSIPs, ISINs and other identifiers to FIGIs and back, with search and filter endpoints. Run by Bloomberg.
+price: free
+price_note: an optional free key raises the limits
+auth: none
+rate_limit: "/v3/mapping 25 requests/min and 10 jobs/request without a key, 250/min and 100 jobs with one"
+formats: [json]
+terms:
+  url: https://www.openfigi.com/docs/terms-of-service
+  store: yes
+  redistribute: yes
+  commercial: yes
+  quote: "may be freely reproduced, distributed, transmitted, used, modified, built upon, or otherwise exploited by anyone for any purpose, commercial or non-commercial"
+  note: FIGIs are dedicated to the public domain (ToS §1); the FIGI marks themselves are not licensed.
+pit:
+  value: "no"
+  note: Returns today's mapping only; a reused ticker maps to its current issuer.
+gotchas:
+  - Without a key the 10-jobs-per-request cap, not the request rate, is what makes bulk CUSIP→ticker runs slow; expect bursty 429s and back off.
+  - Pass exchCode (e.g. "US") or one identifier comes back as many listings.
+  - Some CUSIPs never resolve (options, some foreign domiciles, delisted names); cache the misses or you will re-query them forever.
+status: active
+verified: 2026-10-19

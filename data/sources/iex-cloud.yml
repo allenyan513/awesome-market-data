@@ -1,0 +1,5 @@
+name: IEX Cloud
+description: IEX Group's developer API for US prices and fundamentals, popular in tutorials from 2018 to 2024.
+status: shut-down
+gotchas:
+  - Shutdown announced 2024-05-31; every product went dark on 2024-08-31.
