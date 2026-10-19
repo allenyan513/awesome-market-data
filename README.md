@@ -370,7 +370,7 @@ Still linked from old tutorials. Listed so you can stop looking.
 
 Additions and corrections are welcome, and corrections to the terms columns most of all. Open an [issue](../../issues/new/choose) or read [CONTRIBUTING.md](CONTRIBUTING.md) to send a pull request: every entry is one YAML file in [`data/sources/`](data/sources), and the README is generated from them. [`sources.json`](sources.json) holds the same data for scripts and agents.
 
-Maintained by [SweetValueLab](https://sweetvaluelab.com), a free US stock valuation site built on several of the sources below. Its own entries are marked *(maintainer's project)*.
+Maintained by [SweetValueLab](https://sweetvaluelab.com), a free US stock valuation site. Its own entries are marked *(maintainer's project)*.
 
 ## License
 
