@@ -11,7 +11,7 @@ Most lists of financial APIs tell you what a source has and how many calls the f
 - **Commercial.** May a paid or ad-supported product use it?
 - **Point-in-time.** Does it say *when* each number became known (a filing timestamp, an acceptance date, a vintage), so a backtest does not use figures that were revised later?
 
-Each entry also lists the gotchas that cost a day to discover. 36 sources, each checked against its own terms page on the date shown.
+Each entry also lists the gotchas that cost a day to discover. 37 sources, each checked against its own terms page on the date shown.
 
 **Legend:** ✅ yes · ❌ no · 🟡 yes with conditions, or partly (read the note) · ❔ the terms don't say · — not applicable
 
@@ -300,6 +300,13 @@ Each entry also lists the gotchas that cost a day to discover. 36 sources, each 
   - Terms: Same terms as the Finnhub API.
   - MCP: `https://mcp.finnhub.io/mcp` · remote · read-only · OAuth with a Finnhub account (mcp:read scope)
 
+- [Firecrawl MCP server](https://github.com/firecrawl/firecrawl-mcp-server) - Official Firecrawl MCP server for searching the web and turning pages and PDFs, such as SEC filings and FOMC statements, into Markdown or structured JSON.
+  - Free tier · API key (1,000 Firecrawl credits a month free; same plans as the API)
+  - Store ❔ · Redistribute ❔ · Commercial 🟡 · Point-in-time ❌ · [terms](https://www.firecrawl.dev/terms-of-service?utm_source=awesome-market-data&utm_medium=integration)
+  - Terms: Rights to fetched pages follow each site's own terms; 5.d.2 and 5.d.3 bar reproducing or distributing the Services without saying whether that covers fetched content.
+  - Point-in-time: Scrapes can be served from a recent cache unless you set maxAge to 0; any dates come from the source page.
+  - MCP: `https://mcp.firecrawl.dev/v2/mcp` · remote · can write · Bearer API key or OAuth; MIT-licensed, also runs locally via npx firecrawl-mcp; interact and monitor tools change state
+
 - [Massive MCP server](https://github.com/massive-com/mcp_massive) - Official MCP server for Massive (formerly Polygon.io) with three tools that search endpoints, call any REST API and query results in SQL.
   - Free tier · API key (same plans and limits as the API)
   - Store 🟡 · Redistribute ❌ · Commercial ❌ · Point-in-time 🟡 · [terms](https://massive.com/legal/market-data-terms-of-service)
@@ -342,6 +349,7 @@ Still linked from old tutorials. Listed so you can stop looking.
 | [Finnhub](https://finnhub.io/docs/api) | Free tier | 🟡 | ❌ | ❌ | 🟡 | 2026-10-19 |
 | [Finnhub MCP server](https://finnhub.io/static/finnhub-how-to-connect-mcp-server.html) | Free tier | 🟡 | ❌ | ❌ | 🟡 | 2026-10-19 |
 | [FINRA short interest and short sale volume](https://www.finra.org/finra-data/browse-catalog/short-sale-volume-data/daily-short-sale-volume-files) | Free tier | ❌ | 🟡 | ❌ | 🟡 | 2026-10-19 |
+| [Firecrawl MCP server](https://github.com/firecrawl/firecrawl-mcp-server) | Free tier | ❔ | ❔ | 🟡 | ❌ | 2026-11-05 |
 | [FRED and ALFRED API](https://fred.stlouisfed.org/docs/api/fred/) | Free | ❌ | ❌ | 🟡 | ✅ | 2026-10-19 |
 | [Kenneth R. French Data Library](https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html) | Free | ❔ | ❔ | ❔ | 🟡 | 2026-10-19 |
 | [Massive (formerly Polygon.io)](https://massive.com/docs) | Free tier | 🟡 | ❌ | ❌ | 🟡 | 2026-10-19 |
