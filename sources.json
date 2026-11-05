@@ -1,6 +1,6 @@
 {
   "generated_from": "data/sources/*.yml",
-  "count": 37,
+  "count": 38,
   "sources": [
     {
       "id": "alpha-vantage-mcp",
@@ -374,6 +374,36 @@
       ],
       "status": "active",
       "verified": "2026-10-19"
+    },
+    {
+      "id": "firecrawl-mcp",
+      "name": "Firecrawl MCP server",
+      "url": "https://github.com/firecrawl/firecrawl-mcp-server",
+      "category": "agents",
+      "description": "Official Firecrawl MCP server for searching the web and turning pages and PDFs, such as SEC filings and FOMC statements, into Markdown or structured JSON.",
+      "price": "freemium",
+      "price_note": "1,000 Firecrawl credits a month free; same plans as the API",
+      "auth": "key",
+      "terms": {
+        "url": "https://www.firecrawl.dev/terms-of-service?utm_source=awesome-market-data&utm_medium=integration",
+        "store": "unclear",
+        "redistribute": "unclear",
+        "commercial": "conditional",
+        "quote": "Use the Services for any commercial purposes except as expressly authorized by Firecrawl",
+        "note": "Rights to fetched pages follow each site's own terms; 5.d.2 and 5.d.3 bar reproducing or distributing the Services without saying whether that covers fetched content."
+      },
+      "pit": {
+        "value": "no",
+        "note": "Scrapes can be served from a recent cache unless you set maxAge to 0; any dates come from the source page."
+      },
+      "mcp": {
+        "endpoint": "https://mcp.firecrawl.dev/v2/mcp",
+        "transport": "remote",
+        "read_only": false,
+        "note": "Bearer API key or OAuth; MIT-licensed, also runs locally via npx firecrawl-mcp; interact and monitor tools change state"
+      },
+      "status": "active",
+      "verified": "2026-11-05"
     },
     {
       "id": "fmp-mcp",
