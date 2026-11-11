@@ -1,0 +1,27 @@
+name: Trading Signals Toolkit MCP server
+url: https://signals.incomefather.com/mcp
+category: agents
+description: Read-only MCP server for SEC Form 4 insider buys and clusters, US macro event-risk and session briefs, and related pre-trade checks.
+price: freemium
+price_note: 100 free API calls/month, or pay per call in USDC via x402 ($0.005-$0.10)
+auth: key
+terms:
+  url: https://signals.incomefather.com/terms
+  store: unclear
+  redistribute: unclear
+  commercial: unclear
+  quote: "Data comes from public third-party sources (including US government agencies, SEC EDGAR, CFTC, the Base blockchain and IEX historical data, used under the IEX Historical Data Terms of Use)."
+  note: The terms do not say whether callers may store or redistribute responses, or spell out a commercial-reuse license beyond offering paid plans. Event-study ETF moves use IEX historical data under IEX's terms.
+pit:
+  value: partial
+  note: SEC Form 4 rows carry transaction and filing dates; session-brief and event-gate figures are the latest published values and can be revised by the source.
+gotchas:
+  - The AI trade brief is limited to 1 call per day on the anonymous allowance.
+  - Event-study ETF proxy moves use IEX historical data, cited in the terms as subject to the IEX Historical Data Terms of Use.
+mcp:
+  endpoint: https://signals.incomefather.com/mcp
+  transport: remote
+  read_only: true
+  note: 12 read-only tools; anonymous daily allowance, or a free/paid key via Bearer, x-api-key, or ?key=; official MCP Registry io.github.gdietsch/trading-signals-mcp
+status: active
+verified: 2026-11-11

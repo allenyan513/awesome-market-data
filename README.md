@@ -11,7 +11,7 @@ Most lists of financial APIs tell you what a source has and how many calls the f
 - **Commercial.** May a paid or ad-supported product use it?
 - **Point-in-time.** Does it say *when* each number became known (a filing timestamp, an acceptance date, a vintage), so a backtest does not use figures that were revised later?
 
-Each entry also lists the gotchas that cost a day to discover. 36 sources, each checked against its own terms page on the date shown.
+Each entry also lists the gotchas that cost a day to discover. 37 sources, each checked against its own terms page on the date shown.
 
 **Legend:** ✅ yes · ❌ no · 🟡 yes with conditions, or partly (read the note) · ❔ the terms don't say · — not applicable
 
@@ -313,6 +313,15 @@ Each entry also lists the gotchas that cost a day to discover. 36 sources, each 
   - Point-in-time: Answers from the latest nightly snapshot only.
   - MCP: `https://api.sweetvaluelab.com/mcp` · remote · read-only · 3 tools, no key or account; in the official MCP Registry as com.sweetvaluelab/valuation
 
+- [Trading Signals Toolkit MCP server](https://signals.incomefather.com/mcp) - Read-only MCP server for SEC Form 4 insider buys and clusters, US macro event-risk and session briefs, and related pre-trade checks.
+  - Free tier · API key (100 free API calls/month, or pay per call in USDC via x402 ($0.005-$0.10))
+  - Store ❔ · Redistribute ❔ · Commercial ❔ · Point-in-time 🟡 · [terms](https://signals.incomefather.com/terms)
+  - Terms: The terms do not say whether callers may store or redistribute responses, or spell out a commercial-reuse license beyond offering paid plans. Event-study ETF moves use IEX historical data under IEX's terms.
+  - Point-in-time: SEC Form 4 rows carry transaction and filing dates; session-brief and event-gate figures are the latest published values and can be revised by the source.
+  - MCP: `https://signals.incomefather.com/mcp` · remote · read-only · 12 read-only tools; anonymous daily allowance, or a free/paid key via Bearer, x-api-key, or ?key=; official MCP Registry io.github.gdietsch/trading-signals-mcp
+  - Gotcha: The AI trade brief is limited to 1 call per day on the anonymous allowance.
+  - Gotcha: Event-study ETF proxy moves use IEX historical data, cited in the terms as subject to the IEX Historical Data Terms of Use.
+
 - [Twelve Data MCP server](https://github.com/twelvedata/mcp) - Official MCP server for Twelve Data prices, 60+ technical indicators, fundamentals, filings and insider data.
   - Free tier · account (same plans and limits as the API)
   - Store 🟡 · Redistribute 🟡 · Commercial 🟡 · Point-in-time ❌ · [terms](https://twelvedata.com/terms)
@@ -359,6 +368,7 @@ Still linked from old tutorials. Listed so you can stop looking.
 | [SweetValueLab MCP server](https://sweetvaluelab.com/datasets#mcp) | Free | ❔ | 🟡 | ❔ | ❌ | 2026-10-19 |
 | [SweetValueLab open datasets](https://sweetvaluelab.com/datasets) | Free | ✅ | 🟡 | ✅ | 🟡 | 2026-10-19 |
 | [Tiingo](https://www.tiingo.com/documentation/general/overview) | Free tier | 🟡 | 🟡 | 🟡 | 🟡 | 2026-10-19 |
+| [Trading Signals Toolkit MCP server](https://signals.incomefather.com/mcp) | Free tier | ❔ | ❔ | ❔ | 🟡 | 2026-11-11 |
 | [Treasury Fiscal Data API](https://fiscaldata.treasury.gov/api-documentation/) | Free | ✅ | ✅ | ✅ | 🟡 | 2026-10-19 |
 | [Twelve Data](https://twelvedata.com/docs) | Free tier | 🟡 | 🟡 | 🟡 | ❌ | 2026-10-19 |
 | [Twelve Data MCP server](https://github.com/twelvedata/mcp) | Free tier | 🟡 | 🟡 | 🟡 | ❌ | 2026-10-19 |
